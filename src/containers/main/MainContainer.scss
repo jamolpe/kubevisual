@@ -1,0 +1,36 @@
+@import '../../index.scss';
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $color-background;
+  color: white;
+  padding: 25px;
+  height: 130px;
+  text-align: center;
+}
+.body-container {
+  flex-grow: 4;
+  min-width: 0;
+}
+.body-content {
+  display: flex;
+  margin-top: 150px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 131px;
+  position: relative;
+}
+
+@media (max-width: $mobile-min) {
+  .body-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 180px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
+}

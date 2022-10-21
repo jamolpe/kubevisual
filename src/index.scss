@@ -1,0 +1,42 @@
+$color-background: #303846;
+// info mix colors
+$color-info: #5f9ea0;
+$color-content: #f5f5f5;
+$hover-colour: DarkSeaGreen;
+$error-colour: rgb(226, 157, 157);
+$sucess-colour: #9aecbc;
+
+$important-colour: #ec7063;
+//sizes
+
+$breakpoint-tablet: 768px;
+$mobile-min: 800px;
+$title-size: 20px;
+$body-size: 15px;
+
+body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.left {
+  left: 0;
+}
+.rigth {
+  right: 0;
+}
+
+#pagebody .create-button {
+  background-color: $sucess-colour;
+}
+
+#pagebody .remove-button {
+  background-color: $error-colour;
+}
