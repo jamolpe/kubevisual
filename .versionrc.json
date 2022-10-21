@@ -10,8 +10,8 @@
     { "type": "perf", "hidden": true },
     { "type": "test", "hidden": true }
   ],
-  "commitUrlFormat": "https://github.com/jamolpe/front-end-base-template/commit/{{hash}}",
-  "compareUrlFormat": "https://github.com/jamolpe/front-end-base-template/compare/{{previousTag}}...{{currentTag}}",
+  "commitUrlFormat": "https://github.com/jamolpe/kubevisual/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/jamolpe/kubevisual/compare/{{previousTag}}...{{currentTag}}",
   "issuePrefixes": ["#"],
-  "issueUrlFormat": "https://github.com/jamolpe/front-end-base-template/issues/{{id}}"
+  "issueUrlFormat": "https://github.com/jamolpe/kubevisual/issues/{{id}}"
 }

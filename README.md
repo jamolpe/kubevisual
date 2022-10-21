@@ -1,4 +1,4 @@
-# front-end-base-template
+# kubevisual
 
 Front end with react using redux
 
