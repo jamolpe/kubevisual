@@ -6,9 +6,11 @@ export interface ApiResponse<T> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const handleRequest = (response: Response): ApiResponse<any> => {
+export const handleRequest = async <T>(
+  response: Response
+): Promise<ApiResponse<T>> => {
   if (!response.ok) {
     throw new Error('request error happened');
   }
-  return { body: response.json(), code: response.status };
+  return { body: await response.json(), code: response.status };
 };
