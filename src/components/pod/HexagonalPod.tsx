@@ -10,7 +10,8 @@ const statusStyles: Record<string, string> = {
   Running: '#52BE80',
   Succeeded: '#5DADE2',
   Failed: '#D35400',
-  Unknown: '#808B96'
+  Unknown: '#808B96',
+  Terminating: '#7D3C98'
 };
 
 const HexagonalPod = ({ podHexagon }: HexagonalPodProps) => {

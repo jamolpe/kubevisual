@@ -9,16 +9,18 @@ import './PodsContainer.scss';
 
 function PodsContainer() {
   const dispatch = useAppDispatch();
-  const { pods } = useSelector(podSelector);
+  const { pods, loading } = useSelector(podSelector);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      console.log('reloading pods');
-      dispatch(loadAllPods());
-    }, 6000);
-    return () => {
-      clearInterval(interval);
-    };
+    if (!loading) {
+      const interval = setInterval(() => {
+        console.log('reloading pods');
+        dispatch(loadAllPods());
+      }, 3000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
   }, []);
 
   return (
