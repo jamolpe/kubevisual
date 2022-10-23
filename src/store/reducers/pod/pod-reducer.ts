@@ -6,17 +6,23 @@ import { loadAllPods } from './pod-actions';
 export interface PodState {
   pods: PodInfo[];
   loading: boolean;
+  refreshTime: number;
 }
 
 const initialState: PodState = {
   pods: [],
-  loading: false
+  loading: false,
+  refreshTime: 15
 };
 
 export const podSlice = createSlice({
   name: 'slice',
   initialState,
-  reducers: {},
+  reducers: {
+    setRefreshTime: (state, action) => {
+      state.refreshTime = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(loadAllPods.pending, (state) => {
       state.loading = true;
@@ -30,6 +36,8 @@ export const podSlice = createSlice({
     });
   }
 });
+
+export const { setRefreshTime } = podSlice.actions;
 
 export const podSelector = (state: RootState) => state.pod;
 
