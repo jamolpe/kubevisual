@@ -3,26 +3,35 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store/hooks';
 import { loadAllPods } from '../../store/reducers/pod/pod-actions';
 import { podSelector } from '../../store/reducers/pod/pod-reducer';
-import { HexGrid, Layout, Hexagon, GridGenerator } from 'react-hexgrid';
+import PodGrid from '../../components/pod/PodGrid';
 
-const PodsContainer = () => {
+import './PodsContainer.scss';
+
+function PodsContainer() {
   const dispatch = useAppDispatch();
   const { pods, loading } = useSelector(podSelector);
+
   useEffect(() => {
     dispatch(loadAllPods());
   }, []);
 
   return (
-    <div>
-      <HexGrid>
-        <Layout>
-          {pods.map((p, i) => {
-            return <Hexagon key={i} q={i} r={i} s={i} />;
-          })}
-        </Layout>
-      </HexGrid>
+    <div className="pod-container">
+      <PodGrid pods={pods} />
+      {/* {pods.map((p, i) => {
+        return (
+          <Hexagon
+            className="pod-hexagon"
+            style={{ stroke: '#42873f', height: '10px', fill: '#007aff' }}
+          >
+            <text fontSize={100} x="20%" y="50%" overflow={'ellipsis'}>
+              {p.name}
+            </text>
+          </Hexagon>
+        );
+      })} */}
     </div>
   );
-};
+}
 
 export default PodsContainer;
