@@ -1,4 +1,3 @@
-import Hexagon from 'react-hexagon';
 import { useEffect, useState } from 'react';
 import { PodInfo } from '../../services/pod';
 import HexagonalPod from './HexagonalPod';
@@ -62,38 +61,41 @@ const PodGrid = ({ pods }: PodGridType) => {
     }
     return dimensions;
   };
-  if (!(pods?.length > 0 && rows > 0)) {
-    return <div></div>;
+
+  if (!pods) {
+    return <div>No pods to be displayed</div>;
   }
   return (
     <svg width={gridWidth} height={gridHeight} x={0} y={0}>
-      {[...Array(rows).keys()]?.map((row) => {
+      {[...Array(rows).keys()].map((row) => {
         const remaining = pods?.length - row * columns;
         const cols = remaining < columns ? remaining : columns;
         const rowDim = getRowDimensions(row);
         return (
-          <svg
-            key={row}
-            width={rowDim.width}
-            height={rowDim.height}
-            y={rowDim.y}
-          >
-            {[...Array(cols).keys()]?.map((c) => {
-              const iHexagon = row * columns + c;
-              const hexagon = pods[iHexagon];
-              const hexDim = getHexDimensions(row, c);
-              return (
-                <svg
-                  key={iHexagon}
-                  height={hexDim.height}
-                  width={hexDim.width}
-                  x={`${hexDim.x}px`}
-                >
-                  <HexagonalPod podHexagon={hexagon} />)
-                </svg>
-              );
-            })}
-          </svg>
+          remaining > 0 && (
+            <svg
+              key={row}
+              width={rowDim.width}
+              height={rowDim.height}
+              y={rowDim.y}
+            >
+              {[...Array(cols).keys()].map((c) => {
+                const iHexagon = row * columns + c;
+                const hexagon = pods[iHexagon];
+                const hexDim = getHexDimensions(row, c);
+                return (
+                  <svg
+                    key={iHexagon}
+                    height={hexDim.height}
+                    width={hexDim.width}
+                    x={`${hexDim.x}px`}
+                  >
+                    <HexagonalPod podHexagon={hexagon} />)
+                  </svg>
+                );
+              })}
+            </svg>
+          )
         );
       })}
     </svg>
