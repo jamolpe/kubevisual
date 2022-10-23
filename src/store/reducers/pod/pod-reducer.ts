@@ -20,7 +20,6 @@ export const podSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loadAllPods.pending, (state) => {
       state.loading = true;
-      state.pods = [];
     });
     builder.addCase(loadAllPods.fulfilled, (state, action) => {
       state.loading = false;
