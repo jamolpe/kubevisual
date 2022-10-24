@@ -16,7 +16,7 @@ function PodsContainer() {
   const { pods, loading, refreshTime } = useSelector(podSelector);
 
   useEffect(() => {
-    dispatch(loadAllPods());
+    if (!loading) dispatch(loadAllPods());
   }, []);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function PodsContainer() {
         clearInterval(interval);
       };
     }
-  }, [refreshTime]);
+  }, [refreshTime, loading]);
 
   const onChangeRefresh = (value: number) => {
     dispatch(setRefreshTime(value));
