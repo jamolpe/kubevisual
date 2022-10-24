@@ -29,7 +29,7 @@ export interface PodInfo {
 //     },
 
 export const getAllPods = async () => {
-  const response = await fetch(`/pod`, {
+  const response = await fetch(`http://127.0.0.1:1337/kubevisual-agent/pod`, {
     method: 'GET'
   });
   return <Promise<ApiResponse<PodInfo[]>>>handleRequest(response);

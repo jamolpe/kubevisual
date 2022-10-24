@@ -40,6 +40,7 @@ function PodsContainer() {
         <RefresherOption value={refreshTime} onChange={onChangeRefresh} />
       </div>
       <div className="pod-container">
+        <h2>General view</h2>
         <PodGrid pods={pods} />
       </div>
     </>

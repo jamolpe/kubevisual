@@ -7,8 +7,8 @@ type PodGridType = {
   pods: PodInfo[];
 };
 
-const gridWidth = 600;
-const gridHeight = 600;
+const gridWidth = 700;
+const gridHeight = 800;
 
 const PodGrid = ({ pods }: PodGridType) => {
   const [columns, setColums] = useState(1);
