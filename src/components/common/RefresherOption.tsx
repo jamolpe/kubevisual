@@ -5,9 +5,6 @@ import {
   MenuItem,
   SelectChangeEvent
 } from '@mui/material';
-import React from 'react';
-
-import './RefresherOption.scss';
 
 type RefresherOptionProps = {
   onChange: (value: number) => void;
@@ -19,7 +16,7 @@ const RefresherOption = ({ onChange, value }: RefresherOptionProps) => {
     onChange(event.target.value as number);
   };
   return (
-    <FormControl className="refresher-selector">
+    <FormControl style={{ minWidth: 110 }}>
       <InputLabel id="demo-simple-select-label">Refresh time</InputLabel>
       <Select
         labelId="demo-simple-select-label"
