@@ -2,6 +2,7 @@ import { Tooltip } from '@mui/material';
 import { useState } from 'react';
 import Hexagon from 'react-hexagon';
 import { PodInfo } from '../../services/pod';
+import TooltipPod from './TooltipPod';
 
 type HexagonalPodProps = {
   pod: PodInfo;
@@ -31,7 +32,7 @@ const HexagonalPod = ({
   const statusColour = statusStyles[pod.status.phase];
 
   return (
-    <Tooltip key={iHexagon} title="Delete">
+    <Tooltip key={iHexagon} placement="top" title={<TooltipPod pod={pod} />}>
       <svg
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

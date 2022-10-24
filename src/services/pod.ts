@@ -10,6 +10,8 @@ export interface PodInfo {
   uid: string;
   node: string;
   namespace: string;
+  age: number;
+  restarts: number;
   status: PodStatus;
 }
 //  {
