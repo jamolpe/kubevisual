@@ -1,3 +1,4 @@
+import { Tooltip } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { PodInfo } from '../../services/pod';
 import HexagonalPod from './HexagonalPod';
@@ -42,22 +43,22 @@ const PodGrid = ({ pods }: PodGridType) => {
     const dimensions = {
       width: `${hexWidth}px`,
       height: `${hexHeight}px`,
-      x: col * hexSize * 2.6
+      x: col * hexSize * 2.6 // play with this values to ajust distances
     };
     if (row % 2 === 1) {
-      dimensions.x += hexSize * 1.3;
+      dimensions.x += hexSize * 1.3; // play with this values to ajust distances
     }
     return dimensions;
   };
 
   const getRowDimensions = (row: number) => {
     const dimensions: any = {
-      y: `${row * (hexSize * 0.7)}px`,
+      y: `${row * (hexSize * 0.75)}px`, // play with this values to ajust distances
       height: `${hexHeight}px`,
       width: gridWidth
     };
     if (row % 2 === 0) {
-      dimensions.marginLeft = `${(hexSize / 2) * 3}px`;
+      dimensions.marginLeft = `${(hexSize / 2) * 3}px`; // play with this values to ajust distances
     }
     return dimensions;
   };
@@ -81,17 +82,16 @@ const PodGrid = ({ pods }: PodGridType) => {
             >
               {[...Array(cols).keys()].map((c) => {
                 const iHexagon = row * columns + c;
-                const hexagon = pods[iHexagon];
+                const pod = pods[iHexagon];
                 const hexDim = getHexDimensions(row, c);
                 return (
-                  <svg
-                    key={iHexagon}
+                  <HexagonalPod
                     height={hexDim.height}
                     width={hexDim.width}
                     x={`${hexDim.x}px`}
-                  >
-                    <HexagonalPod podHexagon={hexagon} />)
-                  </svg>
+                    pod={pod}
+                    iHexagon={iHexagon}
+                  />
                 );
               })}
             </svg>
